@@ -1,0 +1,16 @@
+body{
+    margin: 20px;
+}
+
+form{
+    width: 30%;
+}
+
+#login-button{
+    float: right;
+}
+
+p{
+    color: red;
+    font-size: 12px;
+}
