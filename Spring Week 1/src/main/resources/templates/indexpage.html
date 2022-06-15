@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/style.css'}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light mt-0" th:insert="~{navbar}">
+    </nav>
+    <div class="container welcome">
+        <h1>Welcome to BestBuy</h1>
+        <h4>High tech electronics for the best price!</h4>
+    </div>
+
+    <div class="products">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-4 mt-4 mb-4" th:each="it : ${items}">
+                    <form action="/addtocart" method="post">
+                        <div class="card-body">
+                            <h2 th:text="${it.name}"></h2>
+                            <input type="hidden" name="item_name" th:value="${it.name}">
+                            <h5 class="card-title" th:text="${'$' + it.price}"></h5>
+                            <input type="hidden"name="item_price" th:value="${it.price}">
+                            <p class="card-text" th:text="${it.description}"></p>
+                            <button type = "submit" class="btn btn-success">Add To Cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
