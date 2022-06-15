@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/style.css'}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-light mt-0" th:insert="~{navbar}">
+    </nav>
+    <div class="container welcome">
+        <h1>Welcome to BestBuy</h1>
+        <h4>High tech electronics for the best price!</h4>
+    </div>
+
+    <div class="products">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-4 mt-4 mb-4" th:if="${item!=null}">
+                        <div class="card-body">
+                            <h2 th:text="'Name: ' + ${item.name}"></h2>
+                            <h5 class="card-title" th:text="'Price: ' + ${item.price}"></h5>
+                            <p class="card-text" th:text="'Description: ' + ${item.description}"></p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
